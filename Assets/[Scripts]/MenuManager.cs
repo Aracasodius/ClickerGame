@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] GameObject[] Sections;
 
-    // Use this for initialization
     void Start()
     {
         int children = transform.childCount;
@@ -16,8 +16,20 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    void CheckSectionStatus()
+    {
+        for (int i = 0; i < Sections.Length; i++)
+        {
+            if (Sections[i].activeInHierarchy)
+            {
+                Sections[i].SetActive(false);
+            }
+        }
+    }
+
     public void OpenSection()
     {
+        CheckSectionStatus();
         int children = transform.childCount;
         for (int i = 0; i < children; i++)
         {
