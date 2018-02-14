@@ -12,5 +12,6 @@ public class ScoreSystemEditor : Editor
         ScoreSystem targetScript = (ScoreSystem)target;
 
         if (GUILayout.Button("Reset Score")) { targetScript.ResetScore(); }
+        if (GUILayout.Button("Reset ALL")) { targetScript.ResetAll(); }
     }
 }
